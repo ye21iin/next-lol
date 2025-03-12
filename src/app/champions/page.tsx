@@ -1,5 +1,6 @@
-import { Champion, VersionList } from "@/types/Champion";
+import { Champion } from "@/types/Champion";
 import Image from "next/image";
+import { getChampionList, getLatestVersion } from "../api/fetchData";
 
 const Champions = async () => {
   const version = await getLatestVersion();
@@ -32,19 +33,3 @@ const Champions = async () => {
 };
 
 export default Champions;
-
-const getLatestVersion = async () => {
-  const res = await fetch(
-    "https://ddragon.leagueoflegends.com/api/versions.json"
-  );
-  const versions: VersionList = await res.json();
-  return versions[0];
-};
-
-const getChampionList = async (version: string) => {
-  const res = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
-  );
-  const json = await res.json();
-  return json.data;
-};
