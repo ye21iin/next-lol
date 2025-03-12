@@ -12,7 +12,10 @@ export const getLatestVersion = async () => {
 /** 챔피언 목록 데이터 */
 export const getChampionList = async (version: string) => {
   const res = await fetch(
-    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
+    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
+    {
+      next: { revalidate: 86400 },
+    }
   );
   const json = await res.json();
   return json.data;
