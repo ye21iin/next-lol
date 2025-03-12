@@ -47,7 +47,7 @@ const Items = async () => {
                 </p>
               </div>
               <Link href={`/items/${e}`}>
-                <SearchIcon className="p-1" />
+                <SearchIcon className="p-1 hover:scale-110" />
               </Link>
             </div>
           ))}
