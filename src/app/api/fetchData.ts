@@ -26,3 +26,17 @@ export const getItemList = async (version: string) => {
   const json = await res.json();
   return json.data;
 };
+
+/** 아이템 상세 데이터 */
+type Props = {
+  version: string;
+  id: string;
+};
+export const getItemDetail = async ({ version, id }: Props) => {
+  const res = await fetch(
+    `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
+  );
+  const json = await res.json();
+  const data = json.data[id];
+  return data;
+};
