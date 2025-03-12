@@ -1,13 +1,6 @@
 export type VersionList = string[];
 
-interface ChampionInfo {
-  attack: number;
-  defense: number;
-  magic: number;
-  difficulty: number;
-}
-
-interface ChampionImage {
+export interface Image {
   full: string;
   sprite: string;
   group: string;
@@ -15,6 +8,13 @@ interface ChampionImage {
   y: number;
   w: number;
   h: number;
+}
+
+interface ChampionInfo {
+  attack: number;
+  defense: number;
+  magic: number;
+  difficulty: number;
 }
 
 interface ChampionStats {
@@ -48,7 +48,7 @@ export interface Champion {
   title: string;
   blurb: string;
   info: ChampionInfo;
-  image: ChampionImage;
+  image: Image;
   tags: string[];
   partype: string;
   stats: ChampionStats;
