@@ -14,7 +14,10 @@ const Champions = async () => {
       <div className="grid grid-cols-4 gap-4">
         {champions &&
           Object.keys(champions).map((e) => (
-            <div key={e} className="border">
+            <div
+              key={e}
+              className="border  flex flex-col justify-center items-center"
+            >
               <Image
                 src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champions[e].image.full}`}
                 alt="image"
