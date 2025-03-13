@@ -16,7 +16,7 @@ const Champions = async () => {
       <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4 lg:grid-cols-6">
         {champions &&
           Object.keys(champions).map((e) => (
-            <Link href={`/champions/${champions[e].key}`}>
+            <Link href={`/champions/${e}`}>
               <div
                 key={e}
                 className="flex cursor-pointer flex-col items-center justify-center rounded-lg border p-2 hover:shadow-xl"
