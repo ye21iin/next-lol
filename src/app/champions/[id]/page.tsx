@@ -9,6 +9,13 @@ type Props = {
   };
 };
 
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `Detail: ${params.id}`,
+    description: `Detail: ${params.id}`,
+  };
+}
+
 const ChampionDetail = async ({ params }: Props) => {
   if (!VERSION) return;
 

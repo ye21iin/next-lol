@@ -39,7 +39,7 @@ interface ChampionStats {
 }
 
 export interface Champion {
-  version?: string;
+  version: string;
   id: string;
   key: string;
   name: string;
