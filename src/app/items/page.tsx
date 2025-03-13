@@ -23,7 +23,7 @@ const Items = async () => {
             >
               <Image
                 src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/item/${items[e].image.full}`}
-                alt="image"
+                alt={items[e].name}
                 width={100}
                 height={100}
               />

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getChampionList } from "../../lib/api/fetchData";
 import Link from "next/link";
 import { VERSION } from "@/lib/constant";
+import Card from "@/components/Card";
 
 const Champions = async () => {
   if (!VERSION) return;
@@ -15,22 +16,8 @@ const Champions = async () => {
       <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4 lg:grid-cols-6">
         {champions &&
           Object.keys(champions).map((e) => (
-            <Link href={`/champions/${e}`}>
-              <div
-                key={e}
-                className="flex cursor-pointer flex-col items-center justify-center rounded-lg border p-2 hover:shadow-xl"
-              >
-                <Image
-                  src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/champion/${champions[e].image.full}`}
-                  alt="image"
-                  width={100}
-                  height={100}
-                />
-                <h2 className="mt-2 text-xl font-semibold">
-                  {champions[e].name}
-                </h2>
-                <p className="text-gray-500">{champions[e].title}</p>
-              </div>
+            <Link href={`/champions/${e}`} key={e}>
+              <Card champion={champions[e]} />
             </Link>
           ))}
       </div>
