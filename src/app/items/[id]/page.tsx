@@ -1,4 +1,5 @@
 import { getItemDetail } from "@/lib/api/fetchData";
+import { VERSION } from "@/lib/constant";
 import { removeHtmlTags } from "@/lib/utils/dataCleansing";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ type Props = {
 const ItemDetail = async ({ params }: Props) => {
   if (!VERSION) return;
 
-  const item = await getItemDetail({ VERSION, id: params.id });
+  const item = await getItemDetail({ version: VERSION, id: params.id });
 
   return (
     <div className="flex flex-col items-center justify-center">

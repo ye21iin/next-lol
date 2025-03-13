@@ -13,7 +13,7 @@ const ChampionDetail = async ({ params }: Props) => {
   if (!VERSION) return;
 
   const champion: Record<string, Champion> = await getChampionDetail({
-    VERSION,
+    version: VERSION,
     id: params.id,
   });
 
