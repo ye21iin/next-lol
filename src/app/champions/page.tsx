@@ -12,14 +12,14 @@ const Champions = async () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold ml-4">챔피언 목록</h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
+      <h1 className="ml-4 text-3xl font-bold">챔피언 목록</h1>
+      <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4 lg:grid-cols-6">
         {champions &&
           Object.keys(champions).map((e) => (
             <Link href={`/champions/${champions[e].key}`}>
               <div
                 key={e}
-                className="border flex flex-col justify-center items-center p-2 rounded-lg hover:shadow-xl cursor-pointer"
+                className="flex cursor-pointer flex-col items-center justify-center rounded-lg border p-2 hover:shadow-xl"
               >
                 <Image
                   src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champions[e].image.full}`}
