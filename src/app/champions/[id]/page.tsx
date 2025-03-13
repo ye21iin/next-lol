@@ -1,4 +1,5 @@
-import { getChampionDetail, getLatestVersion } from "@/app/api/fetchData";
+import { getChampionDetail } from "@/lib/api/fetchData";
+import { VERSION } from "@/lib/constant";
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
 
@@ -9,12 +10,10 @@ type Props = {
 };
 
 const ChampionDetail = async ({ params }: Props) => {
-  const version = await getLatestVersion();
-
-  if (!version) return;
+  if (!VERSION) return;
 
   const champion: Record<string, Champion> = await getChampionDetail({
-    version,
+    VERSION,
     id: params.id,
   });
 
@@ -26,7 +25,7 @@ const ChampionDetail = async ({ params }: Props) => {
           {champion[params.id].title}
         </p>
         <Image
-          src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion[params.id].image.full}`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/champion/${champion[params.id].image.full}`}
           alt={champion[params.id].name}
           width={200}
           height={200}

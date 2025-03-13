@@ -1,29 +1,28 @@
 import { Item } from "@/types/Item";
-import { getItemList, getLatestVersion } from "../api/fetchData";
+import { getItemList } from "../../lib/api/fetchData";
 import Image from "next/image";
 import { SearchIcon } from "lucide-react";
 import Link from "next/link";
-import { removeHtmlTags } from "@/utils/dataCleansing";
+import { removeHtmlTags } from "@/lib/utils/dataCleansing";
+import { VERSION } from "@/lib/constant";
 
 const Items = async () => {
-  const version = await getLatestVersion();
+  if (!VERSION) return;
 
-  if (!version) return;
-
-  const items: Record<string, Item> = await getItemList(version);
+  const items: Record<string, Item> = await getItemList(VERSION);
 
   return (
     <div>
-      <h1 className="text-3xl font-bold ml-4">아이템 목록</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4 w-full place-items-center">
+      <h1 className="ml-4 text-3xl font-bold">아이템 목록</h1>
+      <div className="grid w-full grid-cols-1 place-items-center gap-4 p-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
         {items &&
           Object.keys(items).map((e) => (
             <div
               key={e}
-              className="border flex flex-col justify-evenly items-center text-center p-3 w-48 h-80 rounded-lg hover:shadow-xl"
+              className="flex h-80 w-48 flex-col items-center justify-evenly rounded-lg border p-3 text-center hover:shadow-xl"
             >
               <Image
-                src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${items[e].image.full}`}
+                src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/item/${items[e].image.full}`}
                 alt="image"
                 width={100}
                 height={100}
@@ -31,11 +30,11 @@ const Items = async () => {
               <h2 className="mt-2 text-xl font-semibold">
                 {removeHtmlTags(items[e].name)}
               </h2>
-              <p className="text-gray-500 w-[80%]">
+              <p className="w-[80%] text-gray-500">
                 {removeHtmlTags(items[e].plaintext).length < 23 &&
                   removeHtmlTags(items[e].plaintext)}
               </p>
-              <div className="border rounded-lg p-2 w-[80%] mt-2 mb-2">
+              <div className="mb-2 mt-2 w-[80%] rounded-lg border p-2">
                 <p className="text-blue-500">
                   가격: {items[e].gold.base !== 0 ? items[e].gold.base : "-"}
                 </p>
@@ -47,7 +46,7 @@ const Items = async () => {
                 </p>
               </div>
               <Link href={`/items/${e}`}>
-                <SearchIcon className="p-1 hover:scale-110 cursor-pointer" />
+                <SearchIcon className="cursor-pointer p-1 hover:scale-110" />
               </Link>
             </div>
           ))}

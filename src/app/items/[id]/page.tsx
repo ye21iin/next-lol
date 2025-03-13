@@ -1,5 +1,5 @@
-import { getItemDetail, getLatestVersion } from "@/app/api/fetchData";
-import { removeHtmlTags } from "@/utils/dataCleansing";
+import { getItemDetail } from "@/lib/api/fetchData";
+import { removeHtmlTags } from "@/lib/utils/dataCleansing";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,17 +10,15 @@ type Props = {
 };
 
 const ItemDetail = async ({ params }: Props) => {
-  const version = await getLatestVersion();
+  if (!VERSION) return;
 
-  if (!version) return;
-
-  const item = await getItemDetail({ version, id: params.id });
+  const item = await getItemDetail({ VERSION, id: params.id });
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="m-7 flex max-h-full max-w-lg flex-col items-center justify-center gap-5 text-center">
         <Image
-          src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.image.full}`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/item/${item.image.full}`}
           alt="image"
           width={100}
           height={100}

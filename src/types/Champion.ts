@@ -1,5 +1,3 @@
-export type VersionList = string[];
-
 export interface Image {
   full: string;
   sprite: string;

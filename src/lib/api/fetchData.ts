@@ -1,11 +1,9 @@
-import { VersionList } from "@/types/Champion";
-
 /** Data Dragon API의 버전 정보 */
 export const getLatestVersion = async () => {
   const res = await fetch(
     "https://ddragon.leagueoflegends.com/api/versions.json",
   );
-  const versions: VersionList = await res.json();
+  const versions: string[] = await res.json();
   return versions[0];
 };
 

@@ -1,14 +1,13 @@
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
-import { getChampionList, getLatestVersion } from "../api/fetchData";
+import { getChampionList } from "../../lib/api/fetchData";
 import Link from "next/link";
+import { VERSION } from "@/lib/constant";
 
 const Champions = async () => {
-  const version = await getLatestVersion();
+  if (!VERSION) return;
 
-  if (!version) return;
-
-  const champions: Record<string, Champion> = await getChampionList(version);
+  const champions: Record<string, Champion> = await getChampionList(VERSION);
 
   return (
     <div>
@@ -22,7 +21,7 @@ const Champions = async () => {
                 className="flex cursor-pointer flex-col items-center justify-center rounded-lg border p-2 hover:shadow-xl"
               >
                 <Image
-                  src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champions[e].image.full}`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/${VERSION}/img/champion/${champions[e].image.full}`}
                   alt="image"
                   width={100}
                   height={100}
