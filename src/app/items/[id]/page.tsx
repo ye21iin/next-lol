@@ -1,4 +1,4 @@
-import { getItemDetail } from "@/lib/api/fetchData";
+import { getItemDetail } from "@/app/api/fetchData";
 import { VERSION } from "@/lib/constant";
 import { removeHtmlTags } from "@/lib/utils/dataCleansing";
 import Image from "next/image";

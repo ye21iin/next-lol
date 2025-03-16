@@ -1,6 +1,6 @@
 import { Champion } from "@/types/Champion";
-import Image from "next/image";
-import { getChampionList } from "../../lib/api/fetchData";
+// import Image from "next/image";
+import { getChampionList } from "../api/fetchData";
 import Link from "next/link";
 import { VERSION } from "@/lib/constant";
 import Card from "@/components/Card";

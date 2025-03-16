@@ -1,3 +1,3 @@
-import { getLatestVersion } from "./api/fetchData";
+import { getLatestVersion } from "@/app/api/fetchData";
 
 export const VERSION = await getLatestVersion();

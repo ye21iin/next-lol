@@ -1,5 +1,5 @@
 import { Item } from "@/types/Item";
-import { getItemList } from "../../lib/api/fetchData";
+import { getItemList } from "../api/fetchData";
 import Image from "next/image";
 import { SearchIcon } from "lucide-react";
 import Link from "next/link";

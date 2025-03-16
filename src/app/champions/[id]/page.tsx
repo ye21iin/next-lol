@@ -1,4 +1,4 @@
-import { getChampionDetail } from "@/lib/api/fetchData";
+import { getChampionDetail } from "@/app/api/fetchData";
 import { VERSION } from "@/lib/constant";
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
