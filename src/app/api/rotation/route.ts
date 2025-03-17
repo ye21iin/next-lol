@@ -25,9 +25,23 @@ export async function GET() {
       },
     );
     if (!res.ok) {
-      return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
-        status: res.status,
-      });
+      // debugging test code
+      const errorText = await res.text();
+      console.error(`Riot API error (${res.status}):`, errorText);
+
+      console.error(
+        "Response headers:",
+        Object.fromEntries(res.headers.entries()),
+      );
+
+      return NextResponse.json(
+        {
+          error: "Failed to fetch data",
+          status: res.status,
+          details: errorText,
+        },
+        { status: res.status },
+      );
     }
 
     const data: ChampionRotation = await res.json();
