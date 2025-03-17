@@ -39,8 +39,6 @@ const Rotation = () => {
           console.error("Invalid data structure:", data);
           throw new Error("Invalid response data");
         }
-
-        console.log("Rotation data:", data);
         setDataset(data);
 
         const resChampion = await fetch(
