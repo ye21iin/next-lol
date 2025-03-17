@@ -24,6 +24,7 @@ const Rotation = () => {
         if (!response || !response.freeChampionIds) {
           throw new Error("Invalid response data");
         }
+        console.log(response);
         setDataset(response);
 
         const resChampion = await fetch(
