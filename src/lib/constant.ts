@@ -1,3 +1,1 @@
-import { getLatestVersion } from "@/app/api/fetchData";
-
-export const VERSION = await getLatestVersion();
+export const VERSION = process.env.NEXT_PUBLIC_VERSION;
