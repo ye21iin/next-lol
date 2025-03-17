@@ -19,13 +19,29 @@ const Rotation = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/rotation").then((res) => res.json());
+        const response = await fetch("/api/rotation");
 
-        if (!response || !response.freeChampionIds) {
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => null);
+          console.error(
+            "API Error:",
+            response.status,
+            errorData || response.statusText,
+          );
+          throw new Error(
+            `API Error: ${response.status} ${response.statusText}`,
+          );
+        }
+
+        const data = await response.json();
+
+        if (!data || !data.freeChampionIds) {
+          console.error("Invalid data structure:", data);
           throw new Error("Invalid response data");
         }
-        console.log(response);
-        setDataset(response);
+
+        console.log("Rotation data:", data);
+        setDataset(data);
 
         const resChampion = await fetch(
           `https://ddragon.leagueoflegends.com/cdn/${VERSION}/data/ko_KR/champion.json`,
@@ -33,7 +49,7 @@ const Rotation = () => {
         const allChampions = await resChampion.json();
 
         const rotationChampions: Record<string, Champion> = {};
-        response.freeChampionIds.forEach((id: number) => {
+        data.freeChampionIds.forEach((id: number) => {
           const champKey = Object.keys(allChampions.data).find(
             (key) => allChampions.data[key].key === String(id),
           );
