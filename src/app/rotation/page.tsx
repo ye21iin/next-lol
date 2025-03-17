@@ -20,6 +20,10 @@ const Rotation = () => {
       setLoading(true);
       try {
         const response = await fetch("/api/rotation").then((res) => res.json());
+
+        if (!response || !response.freeChampionIds) {
+          throw new Error("Invalid response data");
+        }
         setDataset(response);
 
         const resChampion = await fetch(
