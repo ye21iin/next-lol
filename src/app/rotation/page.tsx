@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { GET } from "../api/rotation/route";
 import Card from "@/components/Card";
 import { VERSION } from "@/lib/constant";
 import { Champion } from "@/types/Champion";

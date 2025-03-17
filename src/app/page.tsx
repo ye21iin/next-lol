@@ -14,39 +14,39 @@ export default function Home() {
             href={"/champions"}
             className="flex flex-col items-center justify-center gap-5 text-amber-400"
           >
-            <Image
+            {/* <Image
               src=""
               alt="image"
               width={400}
               height={300}
               className="relative"
-            />
+            /> */}
             챔피언 목록 보기
           </Link>
           <Link
             href={"/rotation"}
             className="flex flex-col items-center justify-center gap-5 text-amber-400"
           >
-            <Image
+            {/* <Image
               src=""
               alt="image"
               width={400}
               height={300}
               className="relative"
-            />
+            /> */}
             금주 로테이션 확인
           </Link>
           <Link
             href={"/items"}
             className="flex flex-col items-center justify-center gap-5 text-amber-400"
           >
-            <Image
+            {/* <Image
               src=""
               alt="image"
               width={400}
               height={300}
               className="relative"
-            />
+            /> */}
             아이템 목록 보기
           </Link>
         </div>

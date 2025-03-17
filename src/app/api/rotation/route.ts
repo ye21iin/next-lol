@@ -1,7 +1,7 @@
 import { ChampionRotation } from "@/types/ChampionRotation";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+async function GET() {
   const apiKey = process.env.RIOT_API_KEY;
 
   /** apiKey가 없으면 에러 발생 */
