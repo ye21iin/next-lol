@@ -48,14 +48,15 @@ export const getItemDetail = async ({ version, id }: DetailProps) => {
 
 // rotation 데이터 fetch 로직
 export async function fetchRotationData() {
-  const response = await fetch("/api/rotation");
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const response = await fetch(`${baseUrl}/api/rotation`);
 
   if (!response.ok) {
     throw new Error(`API Error: ${response.status} ${response.statusText}`);
   }
 
   const data = await response.json();
-
+  console.log("API Response:", data); // 디버깅용
   if (!data || !data.freeChampionIds) {
     throw new Error("Invalid response data");
   }
