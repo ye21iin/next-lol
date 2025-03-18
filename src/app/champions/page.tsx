@@ -1,5 +1,4 @@
 import { TpChampion } from "@/types/Champion";
-// import Image from "next/image";
 import { getChampionList } from "../api/fetchData";
 import Link from "next/link";
 import { VERSION } from "@/lib/constant";
