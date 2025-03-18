@@ -50,12 +50,16 @@ export interface Champion {
   tags: string[];
   partype: string;
   stats: ChampionStats;
-  skins?: object[];
-  lore?: string;
-  allytips?: string[];
-  enemytips?: string[];
-  spells?: object[];
-  vars?: [];
-  costType?: string;
-  maxammo?: string;
 }
+
+export type ChampionDetail = Champion &
+  Partial<{
+    skins: object[];
+    lore: string;
+    allytips: string[];
+    enemytips: string[];
+    spells: object[];
+    vars: [];
+    costType: string;
+    maxammo: string;
+  }>;

@@ -1,6 +1,6 @@
 import { getChampionDetail } from "@/app/api/fetchData";
 import { VERSION } from "@/lib/constant";
-import { Champion } from "@/types/Champion";
+import { Champion, ChampionDetail } from "@/types/Champion";
 import Image from "next/image";
 
 type Props = {
@@ -19,7 +19,7 @@ export function generateMetadata({ params }: Props) {
 const ChampionDetail = async ({ params }: Props) => {
   if (!VERSION) return;
 
-  const champion: Record<string, Champion> = await getChampionDetail({
+  const champion: Record<string, ChampionDetail> = await getChampionDetail({
     version: VERSION,
     id: params.id,
   });

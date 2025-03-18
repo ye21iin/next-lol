@@ -11,15 +11,15 @@ export interface Item {
   description: string;
   colloq: string;
   plaintext: string;
-  from?: string[];
   consumeOnFull?: boolean;
   specialRecipe?: number;
-  into?: string[];
   image: Image;
   tags: string[];
   gold: ItemGold;
   maps: { [key: string]: boolean };
   stats: { [key: string]: number };
+  from?: string[];
+  into?: string[];
   effect?: { [key: string]: string };
   depth?: number;
 }
