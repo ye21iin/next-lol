@@ -1,4 +1,5 @@
 import { VERSION } from "@/lib/constant";
+import { TpChampion } from "@/types/Champion";
 import { DetailProps } from "@/types/Common";
 
 /** 챔피언 목록 데이터 */
