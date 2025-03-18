@@ -1,8 +1,8 @@
 import { VERSION } from "@/lib/constant";
-import { Champion } from "@/types/Champion";
+import { TpChampion } from "@/types/Champion";
 import Image from "next/image";
 
-const Card = ({ champion }: Record<string, Champion>) => {
+const Card = ({ champion }: Record<string, TpChampion>) => {
   if (!VERSION) return;
 
   return (
