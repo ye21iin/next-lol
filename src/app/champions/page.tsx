@@ -1,4 +1,4 @@
-import { Champion } from "@/types/Champion";
+import { TpChampion } from "@/types/Champion";
 // import Image from "next/image";
 import { getChampionList } from "../api/fetchData";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import Card from "@/components/Card";
 const Champions = async () => {
   if (!VERSION) return;
 
-  const champions: Record<string, Champion> = await getChampionList(VERSION);
+  const champions: Record<string, TpChampion> = await getChampionList(VERSION);
 
   return (
     <div>

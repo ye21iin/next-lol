@@ -13,3 +13,5 @@ export type Props = {
     id: string;
   };
 };
+
+export type DetailProps = { version: string } & Pick<Props["params"], "id">;

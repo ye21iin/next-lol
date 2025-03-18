@@ -1,4 +1,4 @@
-import { Item } from "@/types/Item";
+import { TpItem } from "@/types/Item";
 import { getItemList } from "../api/fetchData";
 import Image from "next/image";
 import { SearchIcon } from "lucide-react";
@@ -9,7 +9,7 @@ import { VERSION } from "@/lib/constant";
 const Items = async () => {
   if (!VERSION) return;
 
-  const items: Record<string, Item> = await getItemList(VERSION);
+  const items: Record<string, TpItem> = await getItemList(VERSION);
 
   return (
     <div>

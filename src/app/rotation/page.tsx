@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import { VERSION } from "@/lib/constant";
-import { Champion } from "@/types/Champion";
+import { TpChampion } from "@/types/Champion";
 
 const Rotation = () => {
   interface Dataset {
@@ -13,7 +13,7 @@ const Rotation = () => {
 
   const [dataset, setDataset] = useState<Dataset | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [champions, setChampions] = useState<Record<string, Champion>>({});
+  const [champions, setChampions] = useState<Record<string, TpChampion>>({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +46,7 @@ const Rotation = () => {
         );
         const allChampions = await resChampion.json();
 
-        const rotationChampions: Record<string, Champion> = {};
+        const rotationChampions: Record<string, TpChampion> = {};
         data.freeChampionIds.forEach((id: number) => {
           const champKey = Object.keys(allChampions.data).find(
             (key) => allChampions.data[key].key === String(id),

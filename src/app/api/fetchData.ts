@@ -1,4 +1,4 @@
-import { Props } from "@/types/Common";
+import { DetailProps } from "@/types/Common";
 
 /** 챔피언 목록 데이터 */
 export const getChampionList = async (version: string) => {
@@ -23,8 +23,6 @@ export const getItemList = async (version: string) => {
   const json = await res.json();
   return json.data;
 };
-
-type DetailProps = { version: string } & Pick<Props["params"], "id">;
 
 /** 챔피언 상세 데이터 */
 export const getChampionDetail = async ({ version, id }: DetailProps) => {
