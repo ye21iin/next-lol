@@ -1,3 +1,4 @@
+import { VERSION } from "@/lib/constant";
 import { DetailProps } from "@/types/Common";
 
 /** 챔피언 목록 데이터 */
@@ -43,3 +44,39 @@ export const getItemDetail = async ({ version, id }: DetailProps) => {
   const data = json.data[id];
   return data;
 };
+
+// rotation 데이터 fetch 로직
+export async function fetchRotationData() {
+  const response = await fetch("/api/rotation");
+
+  if (!response.ok) {
+    throw new Error(`API Error: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+
+  if (!data || !data.freeChampionIds) {
+    throw new Error("Invalid response data");
+  }
+  return data;
+}
+
+// rotation Champion Card fetch 로직
+export async function fetchRotationChampions(freeChampionIds: number[]) {
+  if (!VERSION) {
+    throw new Error("VERSION is not defined");
+  }
+  const allChampions = await getChampionList(VERSION);
+
+  const rotationChampions: Record<string, TpChampion> = {};
+  freeChampionIds.forEach((id: number) => {
+    const champKey = Object.keys(allChampions).find(
+      (key) => allChampions[key].key === String(id),
+    );
+    if (champKey) {
+      rotationChampions[champKey] = allChampions[champKey];
+    }
+  });
+
+  return rotationChampions;
+}

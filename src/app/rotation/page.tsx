@@ -1,80 +1,19 @@
 "use client";
-import { useEffect, useState } from "react";
+import { use } from "react";
 import Card from "@/components/Card";
-import { VERSION } from "@/lib/constant";
-import { TpChampion } from "@/types/Champion";
+import { fetchRotationChampions, fetchRotationData } from "../api/fetchData";
 
 const Rotation = () => {
-  interface Dataset {
-    freeChampionIds: number[];
-    freeChampionIdsForNewPlayers: number[];
-    maxNewPlayerLevel: number;
-  }
-
-  const [dataset, setDataset] = useState<Dataset | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [champions, setChampions] = useState<Record<string, TpChampion>>({});
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch("/api/rotation");
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => null);
-          console.error(
-            "API Error:",
-            response.status,
-            errorData || response.statusText,
-          );
-          throw new Error(
-            `API Error: ${response.status} ${response.statusText}`,
-          );
-        }
-
-        const data = await response.json();
-
-        if (!data || !data.freeChampionIds) {
-          console.error("Invalid data structure:", data);
-          throw new Error("Invalid response data");
-        }
-        setDataset(data);
-
-        const resChampion = await fetch(
-          `https://ddragon.leagueoflegends.com/cdn/${VERSION}/data/ko_KR/champion.json`,
-        );
-        const allChampions = await resChampion.json();
-
-        const rotationChampions: Record<string, TpChampion> = {};
-        data.freeChampionIds.forEach((id: number) => {
-          const champKey = Object.keys(allChampions.data).find(
-            (key) => allChampions.data[key].key === String(id),
-          );
-          if (champKey) {
-            rotationChampions[champKey] = allChampions.data[champKey];
-          }
-        });
-
-        setChampions(rotationChampions);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  if (loading) return <>Loading...</>;
+  const dataset = use(fetchRotationData());
+  const champions = use(fetchRotationChampions(dataset.freeChampionIds));
 
   return (
     <div>
       <h1 className="ml-4 text-3xl font-bold">이번 주 무료 챔피언</h1>
       <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-4 lg:grid-cols-6">
-        {dataset?.freeChampionIds.map((id) => {
-          const champKey = Object.keys(champions).find(
-            (key) => champions[key].key === String(id),
+        {dataset.freeChampionIds.map((id: number) => {
+          const champKey: string | undefined = Object.keys(champions).find(
+            (key: string) => champions[key].key === String(id),
           );
 
           return (
