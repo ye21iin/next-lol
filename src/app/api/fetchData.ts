@@ -56,7 +56,6 @@ export async function fetchRotationData() {
   }
 
   const data = await response.json();
-  console.log("API Response:", data); // 디버깅용
   if (!data || !data.freeChampionIds) {
     throw new Error("Invalid response data");
   }
