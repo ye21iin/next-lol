@@ -1,4 +1,4 @@
-import { ChampionRotation } from "@/types/ChampionRotation";
+import { TpChampionRotation } from "@/types/ChampionRotation";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -31,7 +31,7 @@ export async function GET() {
       );
     }
 
-    const data: ChampionRotation = await res.json();
+    const data: TpChampionRotation = await res.json();
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json(

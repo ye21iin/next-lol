@@ -1,3 +1,5 @@
+import { Props } from "@/types/Common";
+
 /** 챔피언 목록 데이터 */
 export const getChampionList = async (version: string) => {
   const res = await fetch(
@@ -22,13 +24,10 @@ export const getItemList = async (version: string) => {
   return json.data;
 };
 
-type Props = {
-  version: string;
-  id: string;
-};
+type DetailProps = { version: string } & Pick<Props["params"], "id">;
 
 /** 챔피언 상세 데이터 */
-export const getChampionDetail = async ({ version, id }: Props) => {
+export const getChampionDetail = async ({ version, id }: DetailProps) => {
   const res = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`,
     { cache: "no-store" },
@@ -38,7 +37,7 @@ export const getChampionDetail = async ({ version, id }: Props) => {
 };
 
 /** 아이템 상세 데이터 */
-export const getItemDetail = async ({ version, id }: Props) => {
+export const getItemDetail = async ({ version, id }: DetailProps) => {
   const res = await fetch(
     `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`,
   );

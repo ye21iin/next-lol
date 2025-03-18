@@ -1,19 +1,18 @@
-import { Image } from "./Champion";
-
+import { TpImage } from "./Common";
 interface ItemGold {
   base: number;
   purchasable: boolean;
   total: number;
   sell: number;
 }
-export interface Item {
+export interface TpItem {
   name: string;
   description: string;
   colloq: string;
   plaintext: string;
   consumeOnFull?: boolean;
   specialRecipe?: number;
-  image: Image;
+  image: TpImage;
   tags: string[];
   gold: ItemGold;
   maps: { [key: string]: boolean };

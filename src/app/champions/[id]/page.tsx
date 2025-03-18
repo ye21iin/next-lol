@@ -1,13 +1,8 @@
 import { getChampionDetail } from "@/app/api/fetchData";
 import { VERSION } from "@/lib/constant";
-import { Champion, ChampionDetail } from "@/types/Champion";
+import { ChampionDetail } from "@/types/Champion";
+import { Props } from "@/types/Common";
 import Image from "next/image";
-
-type Props = {
-  params: {
-    id: string;
-  };
-};
 
 export function generateMetadata({ params }: Props) {
   return {

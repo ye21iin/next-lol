@@ -1,14 +1,9 @@
 import { getItemDetail } from "@/app/api/fetchData";
 import { VERSION } from "@/lib/constant";
 import { removeHtmlTags } from "@/lib/utils/dataCleansing";
+import { Props } from "@/types/Common";
 import Image from "next/image";
 import Link from "next/link";
-
-type Props = {
-  params: {
-    id: string;
-  };
-};
 
 const ItemDetail = async ({ params }: Props) => {
   if (!VERSION) return;

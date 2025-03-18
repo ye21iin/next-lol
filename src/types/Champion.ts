@@ -1,12 +1,4 @@
-export interface Image {
-  full: string;
-  sprite: string;
-  group: string;
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-}
+import { TpImage } from "./Common";
 
 interface ChampionInfo {
   attack: number;
@@ -38,7 +30,7 @@ interface ChampionStats {
   attackspeed: number;
 }
 
-export interface Champion {
+export interface TpChampion {
   version: string;
   id: string;
   key: string;
@@ -46,13 +38,13 @@ export interface Champion {
   title: string;
   blurb: string;
   info: ChampionInfo;
-  image: Image;
+  image: TpImage;
   tags: string[];
   partype: string;
   stats: ChampionStats;
 }
 
-export type ChampionDetail = Champion &
+export type TpChampionDetail = TpChampion &
   Partial<{
     skins: object[];
     lore: string;
