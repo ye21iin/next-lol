@@ -13,7 +13,7 @@
 - **다크 모드 제공:** 시스템 설정에 따라 자동 적용
 
 ## 📌 프로젝트 구조
-
+```
 📦src
 ┣ 📂app
 ┃ ┣ 📂api
@@ -49,33 +49,48 @@
 ┃ ┣ 📜ChampionRotation.ts
 ┃ ┣ 📜Common.ts
 ┃ ┗ 📜Item.ts
-
+```
 ## 🛠 **기술 스택**
+
+<div align="center">
 
 ### 🗳️ **프로그래밍 언어 및 프레임워크**
 
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 
 ### 🎨 **UI 프레임워크 및 스타일링**
 
 ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![shadcn/ui](https://img.shields.io/badge/shadcn/ui-18181B?style=flat-square&logo=shadcn&logoColor=white)
 ![Lucide Icons](https://img.shields.io/badge/Lucide-4A90E2?style=flat-square&logo=lucide&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-18181B?style=flat-square&logo=shadcn/ui&logoColor=white)
 ![next-themes](https://img.shields.io/badge/NextThemes-000000?style=flat-square&logo=next.js&logoColor=white)
 
 ### ✅ **코드 품질 및 포맷팅**
 
-![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
-![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white)
 ![Prettier Plugin Tailwind CSS](https://img.shields.io/badge/PrettierTailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white)
 ![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=flat-square&logo=postcss&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
 
 ### 🗃️ **버전 관리**
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 
+</div>
+
 ## 🖼️ 미리보기
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/b17c3d60-b760-4d98-a14e-cf0c7dfb8b54" alt="preview" style="width: 750px"/>
+</div>
+
+
+## 💥 Trouble-Shooting
+
+
+
+
